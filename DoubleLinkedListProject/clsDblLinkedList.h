@@ -6,15 +6,19 @@ using namespace std;
 template <class T>
 class clsDblLinkedList
 {
+
+protected:
+	int _size = 0;
+
 public:
 	class Node {
-	public: 
+	public:
 		T value;
 		Node* next;
 		Node* prev;
 	};
 
-	Node* head=NULL;
+	Node* head = NULL;
 
 	void insertAtBegining(T value) {
 
@@ -22,13 +26,15 @@ public:
 		newNode->value = value;
 		newNode->next = head;
 		newNode->prev = NULL;
-		
-		if (head!=NULL)
+
+		if (head != NULL)
 		{
 			head->prev = newNode;
 		}
 
 		head = newNode;
+
+		_size++;
 	}
 
 	void printList() {
@@ -44,14 +50,14 @@ public:
 	Node* findNode(T value) {
 		Node* current = head;
 		while (current != NULL) {
-			if (current->value == value) 
+			if (current->value == value)
 				return current;
 			current = current->next;
 		}
 		return NULL;
 	}
 
-	void insertAfter(Node* current,T value) {
+	void insertAfter(Node* current, T value) {
 		Node* newNode = new Node();
 		newNode->value = value;
 		newNode->next = current->next;
@@ -62,13 +68,14 @@ public:
 
 		current->next = newNode;
 
+		_size++;
 	}
 
 	void insertAtEnd(T value) {
 		Node* newNode = new Node();
 		newNode->value = value;
 		newNode->next = NULL;
-	
+
 		if (head == NULL) {
 			newNode->prev = NULL;
 			head = newNode;
@@ -81,19 +88,20 @@ public:
 			}
 			newNode->prev = lastNode;
 			lastNode->next = newNode;
+
+			_size++;
 		}
-		
 	}
 
 	void deleteNode(Node*& nodeToDelete) {
 		if (head == NULL || nodeToDelete == NULL) {
 			return;
 		}
-		
+
 		if (head == nodeToDelete) {
 			head = nodeToDelete->next;
 		}
-			
+
 		if (nodeToDelete->next != NULL) {
 			nodeToDelete->next->prev = nodeToDelete->prev;
 		}
@@ -103,6 +111,7 @@ public:
 		}
 
 		delete nodeToDelete;
+		_size--;
 	}
 
 	void deleteFirstNode() {
@@ -112,16 +121,17 @@ public:
 		Node* tmp = head;
 		head = head->next;
 
-		if (head!=NULL)
+		if (head != NULL)
 		{
 			head->prev = NULL;
 		}
 
 		delete tmp;
+		_size--;
 	}
 
 	void deleteLastNode() {
-		if (head==NULL)
+		if (head == NULL)
 		{
 			return;
 		}
@@ -140,6 +150,11 @@ public:
 		Node* tmp = current->next;
 		current->next = NULL;
 		delete tmp;
+		_size--;
 	}
 
+	int size() {
+		return _size;
+	}
 };
+

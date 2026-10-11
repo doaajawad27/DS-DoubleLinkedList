@@ -16,18 +16,24 @@ int main()
 	
 	myDblLinkedList.insertAfter(myDblLinkedList.findNode(20), 25);
 	myDblLinkedList.printList();
+	
 
 	myDblLinkedList.insertAtEnd(1);
 	myDblLinkedList.printList();
+	
 
 	myDblLinkedList.deleteFirstNode();
+	
+
 	myDblLinkedList.printList();
 
 	myDblLinkedList.deleteLastNode();
 	myDblLinkedList.printList();
+	cout << "size:" << myDblLinkedList.size() << endl;
 
 	clsDblLinkedList<int>::Node * N = myDblLinkedList.findNode(30);
 	myDblLinkedList.deleteNode(N);
 	myDblLinkedList.printList();
+	cout << myDblLinkedList.size();
 }
 
