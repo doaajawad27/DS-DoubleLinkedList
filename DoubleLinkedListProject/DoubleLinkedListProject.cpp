@@ -14,26 +14,26 @@ int main()
 	myDblLinkedList.insertAtBegining(50);
 	myDblLinkedList.printList();
 	
-	myDblLinkedList.insertAfter(myDblLinkedList.findNode(20), 25);
-	myDblLinkedList.printList();
-	
+		myDblLinkedList.printList();
+	cout << "\nsize:" << myDblLinkedList.size() ;
 
-	myDblLinkedList.insertAtEnd(1);
-	myDblLinkedList.printList();
-	
 
-	myDblLinkedList.deleteFirstNode();
-	
+	if (myDblLinkedList.isEmpty()) {
+		cout << " Your list is empty!! ";
+	}
+	else {
+		cout << " Your list is not empty.";
+	}
 
-	myDblLinkedList.printList();
+	cout << "\n\nclear list:";
+	myDblLinkedList.clear();
+	cout <<"\nsize=" << myDblLinkedList.size();
 
-	myDblLinkedList.deleteLastNode();
-	myDblLinkedList.printList();
-	cout << "size:" << myDblLinkedList.size() << endl;
-
-	clsDblLinkedList<int>::Node * N = myDblLinkedList.findNode(30);
-	myDblLinkedList.deleteNode(N);
-	myDblLinkedList.printList();
-	cout << myDblLinkedList.size();
+	if (myDblLinkedList.isEmpty()) {
+		cout << " Your list is empty!! "<<endl;
+	}
+	else {
+		cout << " Your list is not empty."<<endl;
+	}
 }
 

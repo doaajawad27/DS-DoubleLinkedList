@@ -156,5 +156,15 @@ public:
 	int size() {
 		return _size;
 	}
+
+	void clear() {
+		while (_size > 0) {
+			deleteFirstNode();
+		}
+	}
+
+	bool isEmpty() {
+		return _size == 0 ? true : false;
+	}
 };
 
