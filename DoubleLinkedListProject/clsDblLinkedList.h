@@ -166,5 +166,23 @@ public:
 	bool isEmpty() {
 		return _size == 0 ? true : false;
 	}
+
+	void reverse() {
+		
+		Node* current = head;
+		Node* tmp = nullptr;
+		while (current != nullptr) {
+			tmp = current->prev;
+			current->prev = current->next;
+			current->next = tmp;
+			current = current->prev;
+		}
+
+		if (tmp != nullptr)
+			head = tmp->prev;
+			
+	}
+
+	
 };
 
