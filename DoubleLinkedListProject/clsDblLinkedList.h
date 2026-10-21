@@ -183,6 +183,19 @@ public:
 			
 	}
 
+	Node* getNode(int n) {
+
+		if (n < 0 || n >= _size) {
+			return NULL;
+		}
+
+		Node* current = head;
+		for (int i = 0; i < n; i++) {
+			current = current->next;
+		}
+		return current;
+	}
+
 	
 };
 
