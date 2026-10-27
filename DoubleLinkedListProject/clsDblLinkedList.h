@@ -204,14 +204,26 @@ public:
 		return N->value;
 	}
 	
-	bool updateItem(int index, T newVaue) {
+	bool updateItem(int index, T newValue) {
 
 		Node * itemNode = getNode(index);
 		if (itemNode == NULL) {
 			return false;
 		}
 		else {
-			itemNode->value = newVaue;
+			itemNode->value = newValue;
+			return true;
+		}
+	}
+
+	bool insertAfter(int index, T value) {
+
+		Node* itemNode = getNode(index);
+		if (itemNode == NULL) {
+			return false;
+		}
+		else {
+			insertAfter(itemNode, value);
 			return true;
 		}
 	}
